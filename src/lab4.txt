@@ -1,0 +1,56 @@
+interfaces Represent RPG, Character
+
+	-string getName() -> return name of Character
+	-string getgender() -> return gender of Character
+	-int get Level() -> return level of Character
+	-string getjob() -> return job of Character
+	-int get HP () -> return health of Character
+	-int getMana() -> return Mand of CHARACTER
+	-int get str() -> return strength of Character
+	-double getAgi() -> return Agility of Character
+	-Equipment[]  getWeapons() -> return held weapon type equipment array
+	-Equipment[]  getACC() -> return ACCESSORY
+	-Earpment getHead() -> return head accessory ex. helmet
+	-Equipment getshoes() -> return shoes
+	-Equipment getBody () -> return Body ex. ARMOR
+
+
+interfaces Represent RPG, Character accessories 
+	
+Ex.
+	public interface Accessory {
+   	 	String getName();
+   	 	String getDescription();
+   	 	void applyBuff(RPGCharacter character);
+    		void removeBuff(RPGCharacter character);
+	}
+
+โดยที่
+Weapon
+
+	public interface Weapon extends RPGAccessory {
+    		int getDamage();
+    		void attack();
+	}
+
+	int getDamage(): -> return damage ส่งค่าดาเมจที่มีของตัวละคร 
+	void attack(): -> สำหรับทำการโจมตี, เป็นเมทอดที่จะถูกเรียกเมื่อตัวละครใช้อาวุธโจมตี
+
+Armor
+
+	public interface Armor extends RPGAccessory {
+    		int getDefense();
+    		void protect();
+	}
+
+	int getDefense(): -> return daefens ส่งค่าป้องกันที่เกราะมี
+	void protect(): -> ทำการป้องกัน, เป็นเมทอดที่จะถูกเรียกเมื่อตัวละครใช้เกราะป้องกัน
+
+Mobility Accessory
+	public interface MobilityAccessory extends RPGAccessory {
+    		void improveMovement();
+    		void reduceEncumbrance();
+	}
+	void improveMovement(): -> สำหรับทำการบัฟความเร็วหรือการเคลื่อนที่ของตัวละคร
+	void reduceEncumbrance(): -> สำหรับทำการลดความหนักของตัวละคร ทำให้เคลื่อนที่ช้า
+
